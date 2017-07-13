@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="CreateGetsCategory"
+            id="ExemploJDTPlugin.commands.category">
+      </category>
+      <command
+            name="CreateGets"
+            categoryId="ExemploJDTPlugin.commands.category"
+            id="ExemploJDTPlugin.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="ExemploJDTPlugin.commands.sampleCommand"
+            class="ufla.br.ast.genggets.handlers.GenerateGetsHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="ExemploJDTPlugin.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="CreateGetsMenu"
+               mnemonic="M"
+               id="ExemploJDTPlugin.menus.sampleMenu">
+            <command
+                  commandId="ExemploJDTPlugin.commands.sampleCommand"
+                  mnemonic="S"
+                  id="ExemploJDTPlugin.menus.sampleCommand">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="ExemploJDTPlugin.toolbars.sampleToolbar">
+            <command
+                  commandId="ExemploJDTPlugin.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="CreateGets"
+                  id="ExemploJDTPlugin.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

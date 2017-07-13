@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="ContadorDeLinhasPlugin.commands.category">
+      </category>
+      <command
+            name="Sample Command"
+            categoryId="ContadorDeLinhasPlugin.commands.category"
+            id="ContadorDeLinhasPlugin.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="ContadorDeLinhasPlugin.commands.sampleCommand"
+            class="ufla.br.contlin.handlers.SampleHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="ContadorDeLinhasPlugin.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Contador de linhas"
+               mnemonic="M"
+               id="ContadorDeLinhasPlugin.menus.sampleMenu">
+            <command
+                  commandId="ContadorDeLinhasPlugin.commands.sampleCommand"
+                  mnemonic="S"
+                  id="ContadorDeLinhasPlugin.menus.sampleCommand">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="ContadorDeLinhasPlugin.toolbars.sampleToolbar">
+            <command
+                  commandId="ContadorDeLinhasPlugin.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Contador de linhas"
+                  id="ContadorDeLinhasPlugin.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
